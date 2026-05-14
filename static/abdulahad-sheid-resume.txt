@@ -1,0 +1,87 @@
+ABDULAHAD SHEID
+Frontend Engineer | Software Developer
+Abuja, Nigeria
+Phone: +234 (810) 498 9187
+Email: sheidabdulahad0@gmail.com
+GitHub: https://github.com/codespacecadet-intern
+LinkedIn: https://www.linkedin.com/in/abdulahad-sheid-795740409
+Portfolio/Projects: https://github.com/codespacecadet-intern/svelte-portfolio
+
+PROFESSIONAL SUMMARY
+Frontend Engineer and Software Developer focused on building responsive, interactive, and user-centered web applications. Skilled in creating modern interfaces, developer portfolios, web applications, and product-style frontend experiences with strong attention to usability, responsiveness, and clean implementation. Currently strengthening practical engineering skills through the HNG Tech internship with hands-on exposure to real-time collaboration, product delivery, presentations, software production, and Git/GitHub workflows. Interested in frontend and fullstack engineering roles where I can contribute to building polished, scalable, and high-impact digital products.
+
+CORE SKILLS
+- Frontend Development
+- Web Development
+- Web Application Development
+- Fullstack Development
+- Responsive Web Design
+- UI Implementation
+- Product-Focused Frontend Engineering
+- Git and GitHub Collaboration
+
+TECHNICAL TOOLKIT
+- HTML
+- CSS
+- JavaScript
+- React
+- Tailwind CSS
+- Svelte
+- SvelteKit
+- Firebase
+- Framer Motion
+- Chart.js
+- Context API
+- Git
+- GitHub
+
+INTERNSHIP EXPERIENCE
+HNG Tech
+Frontend / Software Engineering Intern
+April 2026 - Present
+- Participating in real-time engineering training focused on practical software development workflows.
+- Contributing to live presentations, product thinking exercises, and hands-on application development.
+- Strengthening collaboration and delivery skills through Git and GitHub-based team workflows.
+- Building production-oriented frontend projects with an emphasis on implementation quality, usability, and delivery discipline.
+
+SELECTED PROJECTS
+SkySwift Booking Website
+- Built a responsive travel booking website using React, Tailwind CSS, React Router, and Firebase.
+- Integrated tools such as React Date Range, Date-fns, EmailJS, Framer Motion, React Hot Toast, and Lucide React to improve usability and interactivity.
+- Designed the interface to support smooth reservation flow, clear navigation, and mobile-friendly user experience.
+
+MoneyMap Fintech Web App
+- Developed a fintech-style web application using React, Tailwind CSS, Firebase, Context API, and Chart.js.
+- Built a dashboard-oriented experience focused on clear financial data presentation and modern product usability.
+- Applied responsive frontend patterns to improve readability, structure, and user flow across devices.
+
+Nova SaaS
+- Built a SaaS-style frontend using React, Tailwind CSS, Framer Motion, and Chart.js.
+- Focused on polished presentation, modern UI patterns, animated interactions, and scalable layout structure.
+- Designed the interface to reflect a product-ready experience with clear hierarchy and responsive behavior.
+
+Resume Builder
+- Developed a resume-building web application using React, Tailwind CSS, Firebase, React Router, and Framer Motion.
+- Structured the experience around user input, content organization, and readable resume presentation.
+- Focused on building an accessible and practical tool that helps users create structured resume content more efficiently.
+
+Additional Projects
+- More project work is available in the portfolio repository:
+  https://github.com/codespacecadet-intern/svelte-portfolio
+
+EDUCATION
+Bachelor of Science (B.Sc.) in Physics
+Federal University Lokoja
+Lokoja, Kogi State, Nigeria
+
+Frontend Certification
+W3Schools
+
+CERTIFICATIONS
+- HTML - W3Schools
+- CSS - W3Schools
+- JavaScript - W3Schools
+- Frontend Certification - W3Schools
+
+TARGET ROLE
+Frontend Engineer | Frontend Developer | Fullstack Engineer | Software Developer
