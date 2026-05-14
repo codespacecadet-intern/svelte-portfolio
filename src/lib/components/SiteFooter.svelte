@@ -19,7 +19,7 @@
 		frontend care.
 	</p>
 	<nav aria-label="Social media links" class="social-links">
-		{#each profile.socials as social}
+		{#each profile.footerSocials as social}
 			<a
 				href={social.url}
 				target="_blank"

@@ -24,7 +24,21 @@ export const profile = {
 	location: 'Remote / Nigeria',
 	email: 'sheidabdulahad0@gmail.com',
 	resumeUrl: '/abdulahad-sheid-resume.txt',
-	socials: [
+	heroSocials: [
+		{
+			label: 'GitHub',
+			url: 'https://github.com/codespacecadet-intern'
+		},
+		{
+			label: 'LinkedIn',
+			url: 'https://www.linkedin.com/in/abdulahad-sheid-795740409/'
+		},
+		{
+			label: 'Email',
+			url: 'mailto:sheidabdulahad0@gmail.com'
+		}
+	],
+	footerSocials: [
 		{
 			label: 'Facebook',
 			url: 'https://www.facebook.com/share/14d12TuL9n8/?mibextid=wwXIfr'

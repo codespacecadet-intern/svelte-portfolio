@@ -17,7 +17,7 @@
 		</div>
 
 		<nav aria-label="Social links" class="hero-links">
-			{#each profile.socials as social}
+			{#each profile.heroSocials as social}
 				<a href={social.url} target="_blank" rel="noreferrer">{social.label}</a>
 			{/each}
 		</nav>
