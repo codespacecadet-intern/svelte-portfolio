@@ -7,6 +7,7 @@
 	<nav aria-label="Primary navigation">
 		<a href="#projects">Projects</a>
 		<a href="#craft">Craft</a>
+		<a href="#hiring">Hiring</a>
 		<a href="#contact-shell">Contact</a>
 	</nav>
 	<CommandPalette />
@@ -24,7 +25,7 @@
 		gap: 1rem;
 		padding: 0.8rem 1rem;
 		border: 1px solid var(--border-strong);
-		border-radius: 999px;
+		border-radius: 0.75rem;
 		background: color-mix(in oklab, var(--surface) 84%, transparent);
 		backdrop-filter: blur(18px);
 		box-shadow: var(--shadow-soft);
@@ -41,8 +42,8 @@
 		place-items: center;
 		width: 2.5rem;
 		aspect-ratio: 1;
-		border-radius: 50%;
-		background: linear-gradient(135deg, var(--accent), var(--accent-2));
+		border-radius: 0.5rem;
+		background: var(--accent);
 		color: #09111f;
 		font-weight: 800;
 	}
@@ -63,7 +64,7 @@
 
 	@media (max-width: 720px) {
 		.site-header {
-			border-radius: 1.35rem;
+			align-items: start;
 		}
 	}
 </style>

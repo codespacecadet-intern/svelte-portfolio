@@ -63,7 +63,7 @@
 		height: 2.8rem;
 		display: inline-grid;
 		place-items: center;
-		border-radius: 50%;
+		border-radius: 0.5rem;
 		border: 1px solid var(--border-strong);
 		background: color-mix(in oklab, var(--surface-strong) 78%, transparent);
 		color: var(--text-main);

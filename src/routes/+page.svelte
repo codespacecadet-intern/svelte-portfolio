@@ -7,7 +7,7 @@
 	import SectionHeading from '$lib/components/SectionHeading.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import SiteHeader from '$lib/components/SiteHeader.svelte';
-	import { profile, projects } from '$lib/data/portfolio';
+	import { capabilityGroups, profile, projects } from '$lib/data/portfolio';
 
 	let activeCategory = $state('all');
 
@@ -19,10 +19,10 @@
 </script>
 
 <svelte:head>
-	<title>{profile.name} | Interactive SvelteKit Portfolio</title>
+	<title>{profile.name} | Frontend Engineer Portfolio</title>
 	<meta
 		name="description"
-		content="An immersive SvelteKit portfolio focused on interaction design, performance, accessibility, and memorable frontend engineering."
+		content="A SvelteKit portfolio for Abdulahad Sheid, a frontend engineer building secure-feeling product interfaces, dashboards, command surfaces, and accessible web apps."
 	/>
 </svelte:head>
 
@@ -37,19 +37,20 @@
 		<section class="section" id="projects" aria-labelledby="projects-title">
 			<div class="reveal" use:inView>
 				<SectionHeading
-					eyebrow="Selected work"
-					title="Projects that prove product thinking and frontend range."
-					copy="Each case study is routed individually, optimized for responsive layouts, and presented with production-style detail."
+					eyebrow="Project inspection"
+					title="Work that shows product judgement, interface systems, and frontend execution."
+					copy="Each project is presented like a technical signal: what it does, the interface challenge, the stack, and the product impact."
 				/>
 			</div>
 
-			<div class="section reveal" use:inView={{ delay: 120 }}>
+			<div class="section-toolbar reveal" use:inView={{ delay: 120 }}>
 				<ProjectFilter value={activeCategory} onSelect={(category) => (activeCategory = category)} />
+				<p>{visibleProjects.length} active case studies</p>
 			</div>
 
-			<div class="section projects-grid">
+			<div class="project-stack">
 				{#each visibleProjects as project, index (project.slug)}
-					<div class="reveal" use:inView={{ delay: index * 90 }}>
+					<div class="reveal" use:inView={{ delay: index * 80 }}>
 						<ProjectCard {project} />
 					</div>
 				{/each}
@@ -59,29 +60,53 @@
 		<section class="section" id="craft" aria-labelledby="craft-title">
 			<div class="reveal" use:inView>
 				<SectionHeading
-					eyebrow="Engineering craft"
-					title="Built to score well in reviews, not just screenshots."
-					copy="This portfolio deliberately covers the HNG rubric: reusable architecture, refined interactions, accessibility discipline, and fast-loading visuals."
+					eyebrow="Engineering console"
+					title="The portfolio is built to feel like the tools I like shipping."
+					copy="Quietly dense, keyboard-aware, responsive, accessible, and written around reusable SvelteKit components rather than one-off page decoration."
 				/>
 			</div>
 
-			<div class="grid-two section">
-				<div class="panel reveal" use:inView={{ delay: 60 }}>
-					<h3 id="craft-title">Core strengths</h3>
-					<ul>
-						{#each profile.skills as skill}
-							<li>{skill}</li>
-						{/each}
-					</ul>
+			<div class="capability-grid">
+				{#each capabilityGroups as group, index}
+					<article class="capability reveal" use:inView={{ delay: index * 90 }}>
+						<div>
+							<span>0{index + 1}</span>
+							<h3>{group.title}</h3>
+						</div>
+						<p>{group.copy}</p>
+						<ul>
+							{#each group.items as item}
+								<li>{item}</li>
+							{/each}
+						</ul>
+					</article>
+				{/each}
+			</div>
+		</section>
+
+		<section class="section hiring-strip" id="hiring" aria-labelledby="hiring-title">
+			<div class="reveal" use:inView>
+				<p class="eyebrow">Hiring signal</p>
+				<h2 id="hiring-title">Looking for frontend roles where UI quality, speed, and trust matter.</h2>
+			</div>
+			<div class="hiring-grid">
+				<div class="hiring-copy reveal" use:inView={{ delay: 80 }}>
+					<p>
+						I am strongest where product interfaces need to look polished, communicate state clearly,
+						and stay usable across mobile, tablet, and desktop. The next deepening phase will turn
+						each project into a richer technical case study.
+					</p>
+					<div class="hiring-actions">
+						<a href="/resume">Read resume</a>
+						<a href={profile.resumeUrl} download>Download resume</a>
+						<a href={`mailto:${profile.email}`}>Email me</a>
+					</div>
 				</div>
-				<div class="panel reveal" use:inView={{ delay: 140 }}>
-					<h3>Delivery notes</h3>
-					<ul>
-						{#each profile.highlights as highlight}
-							<li>{highlight}</li>
-						{/each}
-					</ul>
-				</div>
+				<ul class="readiness reveal" use:inView={{ delay: 140 }}>
+					{#each profile.highlights as highlight}
+						<li>{highlight}</li>
+					{/each}
+				</ul>
 			</div>
 		</section>
 
@@ -89,17 +114,17 @@
 			<div class="reveal" use:inView>
 				<SectionHeading
 					eyebrow="Contact"
-					title="Let’s build something that feels unforgettable."
-					copy="The contact flow uses client-side validation, sanitized inputs, and a mail integration that keeps secrets out of the frontend."
+					title="Send a role, project brief, or interview invite."
+					copy="The contact flow validates and sanitizes input in the browser, then opens a prefilled email so no secrets or messages are stored in the frontend."
 				/>
 			</div>
 
-			<div class="grid-two section">
+			<div class="contact-grid">
 				<div class="contact-panel reveal" use:inView={{ delay: 80 }}>
-					<h3 id="contact-title">Reach out</h3>
+					<h3 id="contact-title">Direct channel</h3>
 					<p>
-						I enjoy building premium interfaces, product landing experiences, dashboards, and
-						frontend systems that stay smooth under real use.
+						Available for frontend engineering roles, product UI work, dashboards, dev tools,
+						and secure-feeling customer interfaces.
 					</p>
 					<a href={`mailto:${profile.email}`}>{profile.email}</a>
 				</div>
@@ -114,38 +139,146 @@
 </div>
 
 <style>
-	.projects-grid {
-		display: grid;
-		gap: 1.25rem;
+	.section-toolbar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 1.25rem 0 0;
 	}
 
-	.panel,
-	.contact-panel {
-		padding: clamp(1.2rem, 2vw, 1.5rem);
+	.section-toolbar p {
+		margin: 0;
+		color: var(--text-soft);
+		font-size: 0.92rem;
+	}
+
+	.project-stack {
+		display: grid;
+		gap: 1rem;
+		padding-top: 1.25rem;
+	}
+
+	.capability-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		padding-top: 1.4rem;
+	}
+
+	.capability,
+	.contact-panel,
+	.hiring-strip {
 		border: 1px solid var(--border-strong);
-		border-radius: 1.5rem;
+		border-radius: 1rem;
 		background: color-mix(in oklab, var(--surface-strong) 76%, transparent);
 		box-shadow: var(--shadow-soft);
 	}
 
-	.panel h3,
-	.contact-panel h3,
-	.contact-panel p {
-		margin-top: 0;
+	.capability {
+		display: grid;
+		align-content: start;
+		gap: 1rem;
+		min-height: 22rem;
+		padding: 1rem;
 	}
 
-	.panel ul {
-		margin: 0;
-		padding-left: 1.2rem;
-		color: var(--text-muted);
+	.capability div {
 		display: grid;
+		gap: 0.5rem;
+	}
+
+	.capability span,
+	.eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-size: 0.72rem;
+		color: var(--text-soft);
+	}
+
+	.capability h3,
+	.contact-panel h3,
+	.hiring-strip h2,
+	.hiring-copy p {
+		margin: 0;
+	}
+
+	.capability h3 {
+		font-size: 1.35rem;
+	}
+
+	.capability p,
+	.contact-panel p,
+	.hiring-copy p,
+	.readiness {
+		color: var(--text-muted);
+	}
+
+	.capability ul,
+	.readiness {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.capability li,
+	.readiness li {
+		padding: 0.5rem 0.7rem;
+		border: 1px solid var(--border);
+		border-radius: 0.65rem;
+		background: color-mix(in oklab, var(--surface) 78%, transparent);
+	}
+
+	.hiring-strip {
+		padding: clamp(1.25rem, 3vw, 2rem);
+	}
+
+	.hiring-strip h2 {
+		max-width: 58rem;
+		font-size: clamp(2rem, 4vw, 4rem);
+		line-height: 0.98;
+	}
+
+	.hiring-grid,
+	.contact-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: 1rem;
+		padding-top: 1.25rem;
+	}
+
+	.hiring-copy {
+		display: grid;
+		align-content: start;
+		gap: 1rem;
+	}
+
+	.hiring-actions {
+		display: flex;
+		flex-wrap: wrap;
 		gap: 0.75rem;
+	}
+
+	.hiring-actions a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 2.75rem;
+		padding: 0.75rem 0.95rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--border-strong);
+		color: var(--text-main);
+		text-decoration: none;
+		background: color-mix(in oklab, var(--surface) 80%, transparent);
 	}
 
 	.contact-panel {
 		display: grid;
 		align-content: start;
 		gap: 1rem;
+		padding: clamp(1.2rem, 2vw, 1.5rem);
 	}
 
 	.contact-panel p,
@@ -156,5 +289,20 @@
 
 	.contact-panel a {
 		color: var(--text-main);
+	}
+
+	@media (max-width: 920px) {
+		.capability-grid,
+		.hiring-grid,
+		.contact-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 700px) {
+		.section-toolbar {
+			align-items: start;
+			flex-direction: column;
+		}
 	}
 </style>

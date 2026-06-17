@@ -13,7 +13,7 @@
 	<article class="case-study">
 		<header class="hero">
 			<div>
-				<p>{data.project.year} / {data.project.category}</p>
+				<p class="eyebrow">{data.project.year} / {data.project.category} / {data.project.role}</p>
 				<h1>{data.project.title}</h1>
 				<p class="tagline">{data.project.tagline}</p>
 				<p class="description">{data.project.description}</p>
@@ -30,17 +30,30 @@
 
 		<section class="details">
 			<div class="panel">
-				<h2>Challenge</h2>
+				<span>Challenge</span>
+				<h2>Problem space</h2>
 				<p>{data.project.challenge}</p>
 			</div>
 			<div class="panel">
-				<h2>Impact</h2>
+				<span>Impact</span>
+				<h2>Delivery result</h2>
 				<p>{data.project.impact}</p>
 			</div>
 		</section>
 
 		<section class="panel">
-			<h2>Tech stack</h2>
+			<span>Technical focus</span>
+			<h2>Interface priorities</h2>
+			<ul class="metrics">
+				{#each data.project.focus as item}
+					<li>{item}</li>
+				{/each}
+			</ul>
+		</section>
+
+		<section class="panel">
+			<span>Stack</span>
+			<h2>Tools and implementation</h2>
 			<ul class="stack">
 				{#each data.project.technologies as item}
 					<li>{item}</li>
@@ -49,7 +62,8 @@
 		</section>
 
 		<section class="panel">
-			<h2>Delivery metrics</h2>
+			<span>Signals</span>
+			<h2>What to inspect</h2>
 			<ul class="metrics">
 				{#each data.project.metrics as metric}
 					<li>{metric}</li>
@@ -68,7 +82,7 @@
 
 	.case-study {
 		display: grid;
-		gap: 1.25rem;
+		gap: 1rem;
 		padding-bottom: 4rem;
 	}
 
@@ -79,30 +93,40 @@
 		align-items: end;
 	}
 
-	.hero p {
+	.eyebrow {
 		margin: 0;
-		color: var(--text-muted);
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-size: 0.74rem;
+		color: var(--text-soft);
 	}
 
 	h1 {
-		margin: 0.25rem 0 0.75rem;
-		font-size: clamp(2.8rem, 7vw, 5.5rem);
+		margin: 0.4rem 0 0.75rem;
+		font-size: clamp(2.7rem, 7vw, 5.5rem);
 		line-height: 0.92;
 	}
 
+	.tagline,
+	.description {
+		margin: 0;
+	}
+
 	.tagline {
-		color: var(--accent-soft) !important;
-		font-size: 1.1rem;
+		color: var(--accent-soft);
+		font-size: 1.12rem;
 	}
 
 	.description {
-		max-width: 44rem;
+		max-width: 48rem;
+		margin-top: 0.7rem;
+		color: var(--text-muted);
 	}
 
 	.actions {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.8rem;
+		gap: 0.7rem;
 	}
 
 	.actions a,
@@ -115,14 +139,14 @@
 		border: 1px solid var(--border-strong);
 		background: var(--surface-strong);
 		color: var(--text-main);
-		padding: 0.85rem 1rem;
-		border-radius: 999px;
+		padding: 0.8rem 0.95rem;
+		border-radius: 0.5rem;
 	}
 
 	.visual,
 	.panel {
 		border: 1px solid var(--border-strong);
-		border-radius: 1.5rem;
+		border-radius: 0.75rem;
 		background: color-mix(in oklab, var(--surface-strong) 82%, transparent);
 		box-shadow: var(--shadow-soft);
 	}
@@ -139,28 +163,48 @@
 	.details {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 1.25rem;
+		gap: 1rem;
 	}
 
 	.panel {
-		padding: 1.2rem;
+		display: grid;
+		gap: 0.8rem;
+		padding: 1rem;
+	}
+
+	.panel span {
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-size: 0.7rem;
+		color: var(--text-soft);
+	}
+
+	.panel h2,
+	.panel p {
+		margin: 0;
+	}
+
+	.panel p {
+		color: var(--text-muted);
 	}
 
 	.stack,
 	.metrics {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.75rem;
+		gap: 0.65rem;
 		list-style: none;
 		padding: 0;
+		margin: 0;
 	}
 
 	.stack li,
 	.metrics li {
-		padding: 0.5rem 0.8rem;
-		border-radius: 999px;
+		padding: 0.48rem 0.65rem;
+		border-radius: 0.5rem;
 		background: var(--surface);
 		border: 1px solid var(--border);
+		color: var(--text-muted);
 	}
 
 	@media (max-width: 800px) {

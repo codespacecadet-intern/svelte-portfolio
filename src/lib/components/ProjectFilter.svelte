@@ -32,7 +32,7 @@
 		border: 1px solid var(--border);
 		background: var(--surface-strong);
 		color: var(--text-main);
-		border-radius: 999px;
+		border-radius: 0.5rem;
 		padding: 0.72rem 1rem;
 		font: inherit;
 		cursor: pointer;

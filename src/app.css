@@ -1,46 +1,52 @@
 :root {
-	--bg: #07111c;
-	--bg-alt: #0c1825;
-	--surface: rgba(8, 17, 29, 0.84);
-	--surface-strong: #102033;
-	--text-main: #f7f4ef;
-	--text-muted: #b8c4d3;
-	--text-soft: #88a0b7;
-	--border: rgba(160, 185, 214, 0.14);
-	--border-strong: rgba(160, 185, 214, 0.28);
-	--accent: #7cf7c2;
-	--accent-2: #f6b96a;
-	--accent-soft: #c6ffe7;
-	--shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
-	--shadow-soft: 0 18px 44px rgba(0, 0, 0, 0.22);
+	--bg: #090b0d;
+	--bg-alt: #111510;
+	--surface: rgba(13, 16, 16, 0.86);
+	--surface-strong: #171c1a;
+	--text-main: #f4f1e8;
+	--text-muted: #b9c0b9;
+	--text-soft: #7f8b84;
+	--border: rgba(198, 214, 200, 0.12);
+	--border-strong: rgba(198, 214, 200, 0.24);
+	--accent: #69f2a6;
+	--accent-2: #f4b85f;
+	--accent-soft: #b9ffd6;
+	--danger: #ff6f61;
+	--shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+	--shadow-soft: 0 18px 44px rgba(0, 0, 0, 0.26);
 	--content-width: min(1120px, calc(100vw - 2rem));
 	color-scheme: dark;
 }
 
 :root[data-theme='light'] {
-	--bg: #f3ecdf;
-	--bg-alt: #efe4d4;
-	--surface: rgba(255, 253, 249, 0.86);
-	--surface-strong: #fffaf2;
-	--text-main: #17202d;
-	--text-muted: #455263;
-	--text-soft: #6d7887;
-	--border: rgba(23, 32, 45, 0.12);
-	--border-strong: rgba(23, 32, 45, 0.22);
-	--accent: #187f68;
-	--accent-2: #db7e30;
-	--accent-soft: #165546;
-	--shadow: 0 28px 70px rgba(78, 60, 39, 0.16);
-	--shadow-soft: 0 16px 34px rgba(78, 60, 39, 0.12);
+	--bg: #f7f8f4;
+	--bg-alt: #e9eee7;
+	--surface: rgba(255, 255, 252, 0.9);
+	--surface-strong: #ffffff;
+	--text-main: #151917;
+	--text-muted: #47504b;
+	--text-soft: #727d75;
+	--border: rgba(21, 25, 23, 0.12);
+	--border-strong: rgba(21, 25, 23, 0.22);
+	--accent: #087a4c;
+	--accent-2: #bd6a16;
+	--accent-soft: #0f5d3f;
+	--danger: #b5382d;
+	--shadow: 0 28px 70px rgba(31, 42, 33, 0.15);
+	--shadow-soft: 0 16px 34px rgba(31, 42, 33, 0.11);
 	color-scheme: light;
 }
 
 html {
 	scroll-behavior: smooth;
 	background:
-		radial-gradient(circle at top, color-mix(in oklab, var(--accent) 10%, transparent), transparent 30%),
-		radial-gradient(circle at 90% 15%, color-mix(in oklab, var(--accent-2) 16%, transparent), transparent 22%),
+		linear-gradient(color-mix(in oklab, var(--border) 62%, transparent) 1px, transparent 1px),
+		linear-gradient(90deg, color-mix(in oklab, var(--border) 62%, transparent) 1px, transparent 1px),
 		linear-gradient(180deg, var(--bg), var(--bg-alt));
+	background-size:
+		44px 44px,
+		44px 44px,
+		100% 100%;
 }
 
 body {
@@ -82,7 +88,7 @@ textarea:focus-visible {
 	padding: 0.75rem 1rem;
 	background: var(--surface-strong);
 	color: var(--text-main);
-	border-radius: 0.75rem;
+	border-radius: 0.5rem;
 	z-index: 99;
 	text-decoration: none;
 }

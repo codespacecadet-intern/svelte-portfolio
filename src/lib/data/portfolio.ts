@@ -1,9 +1,11 @@
+export type ProjectCategory = 'web-app' | 'systems' | 'tooling';
+
 export type Project = {
 	slug: string;
 	title: string;
 	tagline: string;
 	description: string;
-	category: 'web-app' | 'immersive' | 'tooling';
+	category: ProjectCategory;
 	technologies: string[];
 	metrics: string[];
 	image: string;
@@ -13,15 +15,18 @@ export type Project = {
 	year: string;
 	challenge: string;
 	impact: string;
+	role: string;
+	focus: string[];
 };
 
 export const profile = {
 	name: 'Abdulahad Sheid',
 	title: 'Frontend Engineer',
-	subtitle: 'I build cinematic interfaces with SvelteKit, motion systems, and product-grade polish.',
+	subtitle: 'I build secure-feeling, product-grade frontend systems for teams that care about speed, clarity, and trust.',
 	introduction:
-		'I turn product ideas into fast, tactile experiences that feel engineered instead of assembled. This portfolio is designed as a living proof of interaction design, accessibility, and performance discipline.',
+		'I design and ship responsive interfaces that feel like real software: fast command surfaces, clear state, accessible flows, and careful interaction details. This portfolio is being shaped as a frontend engineering console for hiring teams.',
 	location: 'Remote / Nigeria',
+	availability: 'Open to frontend engineering roles',
 	email: 'sheidabdulahad0@gmail.com',
 	resumeUrl: '/abdulahad-sheid-resume.txt',
 	heroSocials: [
@@ -57,29 +62,60 @@ export const profile = {
 		}
 	],
 	skills: [
-		'HTML',
-		'CSS',
-		'JavaScript',
-		'ReactJS',
 		'SvelteKit',
 		'Svelte 5',
 		'TypeScript',
-		'Motion Design',
+		'React',
+		'JavaScript',
+		'Responsive UI',
 		'Accessibility',
-		'Performance Optimization',
+		'Performance',
 		'Design Systems',
-		'Responsive Engineering'
+		'Motion Design',
+		'Firebase',
+		'WebSockets'
 	],
 	highlights: [
-		'Built for SvelteKit with reusable components and modular data.',
-		'Includes keyboard-friendly command palette and reduced motion support.',
-		'Optimized for Lighthouse, routing clarity, and deploy-ready hosting.'
+		'Builds modular frontend architecture with data-driven sections and routed case studies.',
+		'Designs keyboard-aware interfaces with command palette flows, reduced motion support, and visible focus states.',
+		'Translates product requirements into polished dashboards, tools, extensions, and user-facing workflows.'
 	]
 };
 
+export const platformStats = [
+	{ label: 'Frontend stack', value: 'SvelteKit + React', detail: 'TypeScript-ready product UI' },
+	{ label: 'Interaction layer', value: 'Command first', detail: 'Keyboard, theme, motion, route actions' },
+	{ label: 'Delivery focus', value: 'Accessible + fast', detail: 'Semantic HTML and lean dependencies' }
+];
+
+export const capabilityGroups = [
+	{
+		title: 'Interface Systems',
+		copy: 'Responsive layouts, reusable components, state-aware UI, data-rich dashboards, and polished product flows.',
+		items: ['SvelteKit', 'React', 'TypeScript', 'Design Systems']
+	},
+	{
+		title: 'Trust and Access',
+		copy: 'Frontend choices that make apps feel safer: clear states, validation, reduced motion, keyboard paths, and secure API handling patterns.',
+		items: ['Accessibility', 'Validation', 'Auth UI', 'Secure UX']
+	},
+	{
+		title: 'Performance Craft',
+		copy: 'Lean bundles, lazy media, CSS-driven motion, responsive images, and UI details that stay smooth under real use.',
+		items: ['Vite', 'Motion', 'Responsive CSS', 'Lighthouse']
+	}
+];
+
+export const systemSignals = [
+	{ label: 'Availability', value: 'Hiring-ready', status: 'online' },
+	{ label: 'Primary role', value: 'Frontend Engineer', status: 'stable' },
+	{ label: 'Location', value: profile.location, status: 'remote' },
+	{ label: 'Portfolio mode', value: 'Security console', status: 'active' }
+];
+
 export const projectCategories = [
 	{ id: 'all', label: 'All work' },
-	{ id: 'immersive', label: 'Immersive' },
+	{ id: 'systems', label: 'Systems UI' },
 	{ id: 'web-app', label: 'Web apps' },
 	{ id: 'tooling', label: 'Developer tools' }
 ] as const;
@@ -87,124 +123,128 @@ export const projectCategories = [
 export const projects: Project[] = [
 	{
 		slug: 'whisper-box',
-		title: 'WhisperBox End-2-End Encrypted Platform',
-		tagline: 'A live analytics workspace for product teams.',
+		title: 'WhisperBox Encrypted Messaging',
+		tagline: 'Secure-feeling realtime messaging with encrypted-key UX and websocket flows.',
 		description:
-			'WhisperBox is a Vite + React end-to-end encrypted messaging frontend. It depends on a separate backend for auth, user search, message storage, websocket signaling, and media/call infrastructure.',
-		category: 'web-app',
-		technologies: ['WhisperBox API', 'ReactJS', 'WebSockets', 'Tailwind CSS variables'],
-		metrics: ['Keyboard-first UX', 'Private Key Generation', 'Realtime Websocket Listener'],
+			'WhisperBox is a Vite + React encrypted messaging frontend. It handles auth-facing screens, user search, realtime message states, private-key generation, and websocket-driven conversation updates.',
+		category: 'systems',
+		technologies: ['React', 'WebSockets', 'Tailwind CSS', 'Encryption UX', 'REST API'],
+		metrics: ['Private-key generation flow', 'Realtime websocket listener', 'Keyboard-aware messaging UI'],
 		image: '/projects/whisper.png',
-		imageAlt: 'Whisper-box img.',
+		imageAlt: 'WhisperBox messaging interface screenshot.',
 		liveUrl: 'https://whisperbox-chat.vercel.app',
 		repoUrl: 'https://github.com/codespacecadet-intern/whisperbox-chat',
 		year: '2026',
-		challenge: 'The product needed to feel real-time and data-dense without overwhelming users across tablet and desktop.',
-		impact: 'I built a responsive messaging platform where the websocket server is required for fast realtime messaging.'
+		role: 'Frontend architecture and interface implementation',
+		focus: ['Secure UX', 'Realtime state', 'Messaging workflow'],
+		challenge:
+			'The product needed to communicate privacy, realtime activity, and account state without making the interface feel heavy or confusing.',
+		impact:
+			'Built a responsive messaging experience with encrypted-key onboarding patterns, websocket updates, and clear message-state feedback.'
 	},
 	{
 		slug: 'mui-admin-dashboard',
-		title: 'Admin Dashboard | Material UI',
-		tagline: 'A dashboard platform with material user interface.',
+		title: 'Material Admin Operations Dashboard',
+		tagline: 'A dense analytics console for users, activity, sales, and operational reporting.',
 		description:
-			'A responsive admin dashboard built with Material-UI and Nivo charts, using mock data to showcase data tables, charts, theming, and modern UI design with React.',
-		category: 'immersive',
-		technologies: ['React', 'Material UI', 'Nivo Charts', 'Tailwind Css', 'Mock Data (JSON)'],
-		metrics: ['Users Activity', 'Progressive Growth Chart', 'Regional Sales Data', 'Interactive Controls'],
+			'A responsive admin dashboard built with Material UI and Nivo charts to showcase tables, charts, theming, analytics cards, and executive reporting patterns.',
+		category: 'systems',
+		technologies: ['React', 'Material UI', 'Nivo Charts', 'Data Tables', 'Theme UI'],
+		metrics: ['Activity analytics', 'Regional sales views', 'Interactive data panels'],
 		image: '/projects/dashboard.png',
-		imageAlt: 'Product showcase screenshot for Atlas Commerce project.',
+		imageAlt: 'Admin dashboard interface with charts and data panels.',
 		liveUrl: 'https://backendfrontflip.github.io/admindashboard/',
 		repoUrl: 'https://github.com/backendfrontflip/admindashboard',
 		year: '2025',
+		role: 'Dashboard UI implementation',
+		focus: ['Analytics UI', 'Data density', 'Admin workflows'],
 		challenge:
-			'To build a modern dashboard with material user interface using the mui tools and Nivo Charts',
+			'The interface needed to present many data points while keeping navigation, hierarchy, and scanning behavior clear.',
 		impact:
-			'Built a responsive dashboard with charts and data tables using mock data.'
+			'Delivered a polished dashboard concept with charting, table views, theme support, and responsive admin layouts.'
 	},
 	{
 		slug: 'skyswift-booking-system',
 		title: 'SkySwift Booking System',
-		tagline: 'A booking system for flights, hotels, and travel packages.',
+		tagline: 'A travel booking interface for flights, hotels, packages, dates, and customer inquiries.',
 		description:
-			'SkySwift is a booking system for flights, hotels, and travel packages. It uses a modern user interface and a responsive design to provide a seamless booking experience. A responsive flight booking platform where users can search, compare, and book flights seamlessly. Developed with React, it offers a smooth, traveler-friendly experience with a modern UI and fast navigation.',
+			'SkySwift is a responsive flight and travel booking platform where users can search, compare, and explore booking options through a modern React interface.',
 		category: 'web-app',
-		technologies: ['ReactJS', 'TailwindCss', 'React-date-range', 'Firebase', 'React Router', 'Framer Motion', 'EmailJS', 'Date-fns', 'React Hot Toast', 'Lucide React'],
-		metrics: ['Zero console noise', 'Shared component architecture', 'Fast keyboard navigation'],
+		technologies: ['React', 'Tailwind CSS', 'Firebase', 'React Router', 'Framer Motion', 'EmailJS'],
+		metrics: ['Responsive booking flow', 'Animated route transitions', 'Reusable travel UI patterns'],
 		image: '/projects/resumbuild.png',
-		imageAlt: 'Developer tooling interface screenshot for Terminal Flow project.',
+		imageAlt: 'SkySwift travel booking interface screenshot.',
 		liveUrl: 'https://ahadtechprojects.github.io/skywift/#/',
 		repoUrl: 'https://github.com/ahadtechprojects/skywift',
 		year: '2025',
+		role: 'Frontend product build',
+		focus: ['Booking UX', 'Responsive UI', 'Motion'],
 		challenge:
-			'The interface had to feel powerful for expert users while remaining readable and approachable for everyone else. It needed to be simple enough for a beginner to use but powerful enough for an expert to be productive.',
+			'The experience had to feel friendly for travelers while still handling search, date, route, and contact interactions cleanly.',
 		impact:
-			'I used semantic structure, shortcut hints, and layered interaction density to make the experience feel advanced but learnable.'
+			'Built a traveler-friendly interface with responsive layouts, animation polish, and reusable components for booking content.'
 	},
 	{
 		slug: 'nova-saas',
-		title: 'Nova SaaS',
-		tagline: 'A modern SaaS dashboard for startups with analytics, user management, and intuitive navigation.',
+		title: 'Nova SaaS Dashboard',
+		tagline: 'A startup SaaS dashboard concept with analytics, user management, and clean navigation.',
 		description:
-			'A sleek and scalable SaaS platform dashboard built for startups and growing businesses. It includes user management, analytics visualization, and a clean interface designed to make navigation simple and efficient.',
+			'Nova SaaS is a scalable dashboard concept for startups and growing teams. It presents business metrics, management views, and navigation patterns in a clean product shell.',
 		category: 'web-app',
-		technologies: ['React', 'TailwindCSS', 'Framer Motion', 'Chart.js'],
-		metrics: ['Built responsive dashboard layouts for desktop and mobile screens',
-			'Integrated animated UI interactions for a more polished user experience',
-			'Visualized business data through interactive charts and analytics components'],
+		technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'Chart.js'],
+		metrics: ['Responsive dashboard layouts', 'Animated UI interactions', 'Business analytics visualization'],
 		image: '/projects/novasaaas.png',
-		imageAlt: 'Nova SaaS dashboard interface with analytics charts and user management panels',
+		imageAlt: 'Nova SaaS dashboard interface with analytics charts and user management panels.',
 		liveUrl: 'https://ahadtechprojects.github.io/novasaas/',
-		year: '2025',
 		repoUrl: 'https://github.com/ahadtechprojects/novasaas',
+		year: '2025',
+		role: 'Dashboard interface design and implementation',
+		focus: ['SaaS UI', 'Charts', 'Navigation'],
 		challenge:
-			'Designing a dashboard that feels modern and polished while keeping navigation clear, layouts scalable, and data visualization easy to understand.',
+			'The dashboard needed to feel modern and polished while keeping navigation clear, layouts scalable, and data visualization readable.',
 		impact:
-			'Delivered a professional SaaS dashboard concept that helps startups present data clearly, manage users efficiently, and offer a smoother overall product experience.'
+			'Delivered a professional SaaS dashboard concept for presenting business data, managing users, and improving product navigation.'
 	},
 	{
 		slug: 'resume-builder-portfolio-website',
-		title: 'Resume Builder - Portfolio Website',
-		tagline: 'A customizable resume builder that helps users create ATS-friendly resumes with live preview and export options.',
+		title: 'ATS Resume Builder',
+		tagline: 'A guided resume builder with editable sections, live preview, and structured output.',
 		description:
-			'A professional resume builder and portfolio-style web application designed to help users create polished, ATS-friendly resumes. It includes customizable templates, real-time preview functionality, and export options for a smooth and user-friendly resume creation experience.',
+			'A resume builder and portfolio-style web app that helps users create polished, ATS-friendly resumes with live preview, templates, and export-oriented structure.',
 		category: 'web-app',
-		technologies: ['React', 'Tailwind', 'Firebase', 'React Router', 'Framer Motion'],
-		metrics: [
-			'Built real-time resume preview for instant content and layout feedback',
-			'Created customizable templates to support different resume styles and user needs',
-			'Designed an ATS-friendly resume workflow to improve readability and structure'
-		],
+		technologies: ['React', 'Tailwind CSS', 'Firebase', 'React Router', 'Framer Motion'],
+		metrics: ['Live resume preview', 'Customizable templates', 'ATS-friendly structure'],
 		image: '/projects/skyswift.png',
-		imageAlt: 'Resume builder web app with editable resume sections, live preview, and template selection',
+		imageAlt: 'Resume builder web app with editable resume sections and live preview.',
 		liveUrl: 'https://ahadtechprojects.github.io/resumebuilder/',
 		repoUrl: 'https://github.com/ahadtechprojects/resumebuilder',
 		year: '2025',
+		role: 'Frontend application build',
+		focus: ['Form UX', 'Preview UI', 'Career tooling'],
 		challenge:
-			'Building a resume tool that balances customization and simplicity while keeping the final output professional, readable, and compatible with ATS requirements.',
+			'The app needed to balance customization and simplicity while keeping the final resume readable, structured, and professional.',
 		impact:
-			'Made it easier for users to create polished resumes quickly through a guided, user-friendly experience with live preview, flexible templates, and export functionality.'
+			'Created a guided resume workflow with live content feedback, flexible templates, and a smoother path to polished resume output.'
 	},
 	{
 		slug: 'pagemind-ai-page-summarizer',
-		title: 'PageMind',
-		tagline: 'An AI-powered Chrome extension tool that instantly summarizes webpages into key points, insights, and reading-time estimates.',
+		title: 'PageMind AI Summarizer',
+		tagline: 'A Chrome extension that turns long webpages into summaries, insights, and reading signals.',
 		description:
-			'PageMind is a Chrome extension that uses OpenAI GPT-4o-mini to summarize webpages without disrupting the browsing experience. It delivers structured bullet-point summaries, key insights, estimated reading time, in-page phrase highlighting, and local caching to help users scan long-form content faster and more efficiently.',
+			'PageMind uses AI to summarize webpages without disrupting browsing. It provides bullet summaries, key insights, reading-time estimates, in-page phrase highlighting, and local caching.',
 		category: 'tooling',
 		technologies: ['JavaScript', 'Chrome Extensions API', 'OpenAI API', 'HTML', 'CSS', 'chrome.storage.local'],
-		metrics: [
-			'Generated structured AI summaries with bullet points, 3 key insights, and reading-time estimates',
-			'Implemented one-click webpage analysis with in-page highlighting for faster content scanning',
-			'Reduced redundant API usage through per-URL local caching of generated summaries'
-		],
+		metrics: ['Structured AI summaries', 'One-click page analysis', 'Per-URL local caching'],
 		image: '/projects/pagemind.png',
-		imageAlt: 'PageMind Chrome extension popup showing an AI-generated webpage summary with highlighted key phrases',
+		imageAlt: 'PageMind Chrome extension popup showing an AI-generated webpage summary.',
 		liveUrl: 'https://github.com/codespacecadet-intern/pagemind-extension',
 		repoUrl: 'https://github.com/codespacecadet-intern/pagemind-extension',
 		year: '2026',
+		role: 'Extension interface and AI workflow implementation',
+		focus: ['Browser tooling', 'AI UX', 'Caching'],
 		challenge:
-			'Building a browser extension that could extract meaningful page content, generate fast and accurate AI summaries, and present results cleanly inside Chrome while handling messaging, caching, accessibility, and secure API-key usage.',
+			'The extension needed to extract meaningful page content, generate useful summaries, handle caching, and present results cleanly inside Chrome.',
 		impact:
-			'Made long articles, blog posts, and news pages easier to digest by giving users instant AI-powered summaries, visual highlights, and key takeaways directly in their browser, improving reading efficiency without forcing them to leave the current tab.'
+			'Made long-form content easier to scan through instant AI summaries, key takeaways, reading estimates, and contextual highlighting.'
 	}
 ];

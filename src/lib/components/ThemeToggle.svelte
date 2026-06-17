@@ -41,7 +41,7 @@
 		border: 1px solid var(--border-strong);
 		background: color-mix(in oklab, var(--surface-strong) 80%, transparent);
 		color: var(--text-main);
-		border-radius: 999px;
+		border-radius: 0.5rem;
 		padding: 0.72rem 1rem;
 		font: inherit;
 		cursor: pointer;
@@ -61,7 +61,7 @@
 		width: 3.15rem;
 		height: 3.15rem;
 		padding: 0;
-		border-radius: 999px;
+		border-radius: 0.5rem;
 		display: inline-grid;
 		place-items: center;
 		background:
@@ -80,7 +80,7 @@
 		content: '';
 		position: absolute;
 		inset: 0.3rem;
-		border-radius: inherit;
+		border-radius: 0.35rem;
 		background:
 			radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--accent) 22%, transparent), transparent 58%),
 			transparent;

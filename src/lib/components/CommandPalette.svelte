@@ -27,7 +27,13 @@
 			id: 'contact',
 			label: 'Jump to contact',
 			hint: 'Scroll navigation',
-			run: () => goto('/#contact')
+			run: () => goto('/#contact-shell')
+		},
+		{
+			id: 'hiring',
+			label: 'Jump to hiring signal',
+			hint: 'Recruiter path',
+			run: () => goto('/#hiring')
 		},
 		{
 			id: 'theme',
@@ -163,7 +169,7 @@
 		border: 1px solid var(--border-strong);
 		background: color-mix(in oklab, var(--surface-strong) 82%, transparent);
 		color: var(--text-main);
-		border-radius: 999px;
+		border-radius: 0.5rem;
 		padding: 0.8rem 1rem;
 		font: inherit;
 		cursor: pointer;
@@ -191,7 +197,7 @@
 		transform: translateX(-50%);
 		width: min(92vw, 42rem);
 		padding: 1rem;
-		border-radius: 1.5rem;
+		border-radius: 0.75rem;
 		border: 1px solid var(--border-strong);
 		background: var(--surface);
 		box-shadow: var(--shadow);
@@ -220,7 +226,7 @@
 
 	input {
 		width: 100%;
-		border-radius: 1rem;
+		border-radius: 0.5rem;
 		border: 1px solid var(--border);
 		background: var(--surface-strong);
 		color: var(--text-main);
@@ -244,7 +250,7 @@
 		gap: 1rem;
 		text-align: left;
 		padding: 0.95rem 1rem;
-		border-radius: 1rem;
+		border-radius: 0.5rem;
 		border: 1px solid transparent;
 		background: transparent;
 		color: var(--text-main);

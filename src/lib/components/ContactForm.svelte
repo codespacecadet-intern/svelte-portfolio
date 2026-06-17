@@ -69,7 +69,7 @@
 		display: grid;
 		gap: 1rem;
 		padding: clamp(1.2rem, 2vw, 1.5rem);
-		border-radius: 1.5rem;
+		border-radius: 0.75rem;
 		border: 1px solid var(--border-strong);
 		background: color-mix(in oklab, var(--surface-strong) 80%, transparent);
 		box-shadow: var(--shadow-soft);
@@ -87,7 +87,7 @@
 	input,
 	textarea {
 		width: 100%;
-		border-radius: 1rem;
+		border-radius: 0.5rem;
 		border: 1px solid var(--border);
 		background: var(--surface);
 		color: var(--text-main);
@@ -108,9 +108,9 @@
 
 	button {
 		border: 0;
-		background: linear-gradient(135deg, var(--accent), var(--accent-2));
+		background: var(--accent);
 		color: #09111f;
-		border-radius: 999px;
+		border-radius: 0.5rem;
 		padding: 0.9rem 1.1rem;
 		font: inherit;
 		font-weight: 700;
@@ -131,6 +131,6 @@
 	}
 
 	.error {
-		color: #ff9b9b;
+		color: var(--danger);
 	}
 </style>
